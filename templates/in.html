@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sec1">
+    <div class="switch">
+        <a href="">text</a>
+        <a href="">img</a>
+    </div>
+    <div class="input">
+        <form method="post" enctype="multipart/form-data">
+            <input type="textarea" class="active">
+            <input type="file" class="passive" accept="image/*">
+            <button type="submit">送信する</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
