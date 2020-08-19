@@ -12,6 +12,18 @@ def index():
 def in_html():
     return render_template("in.html")
 
+@app.route("/check")
+def check_html():
+    return render_template("check.html")
+
+@app.route("/hole")
+def hole_html():
+    return render_template("hole.html")
+
+@app.route("/out")
+def out_html():
+    return render_template("out.html")
+
 
 
 
