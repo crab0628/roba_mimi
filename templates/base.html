@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css" media="screen and (max-width:320px)">
 </head>
 <body>
     <header>
-        <h1 style="background-color: blue;">ヘッダーだよ！</h1>
+        <h1 class="upper_part" style="background-color: aqua;">ロバ耳ロゴ</h1>
     </header>
     {% block content %}
     <!-- ここにメインコンテンツを書く -->
     {% endblock %}
     <footer>
-        <h1 style="background-color: red;">フッターだよ！</h1>
+        <h1 class="beneath" style="background-color: hotpink;">copyright©2020</h1>
     </footer>
 </body>
 <script src="/static/js/common.js"></script>
