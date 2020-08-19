@@ -1,27 +1,30 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>井戸</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
+<!-- {% extends "base.html" %}
+{% block content %} -->
 <!-- ここに中身を書いていく -->
-<form action="#" method="post">
-    <p>
-    <textarea name="area1" style="width:200px; height:100px;" cols="40" rows="8" maxlength="160">今の気持ちを入力してね
-    </textarea>
-    </p>
-    <div><input type="submit" value="井戸に叫ぶ"></div>
-</form>
-
-<div class="sec1">
-    <div class="switch">
-        <a href="">text</a>
-        <a href="">img</a>
+<div>
+ 
+<body style="background-image: url(../static/img/in_html001.jpg); background-repeat: no-repeat; ">
     </div>
-    <div class="input">
-        <form method="post" enctype="multipart/form-data">
-            <input type="textarea" class="active">
-            <input type="file" class="passive" accept="image/*">
-            <button type="submit">送信する</button>
+        <table>
+            <form action="#" method="post">
+                <p>
+                <textarea name="area1" style="width:200px; height:100px;" cols="40" rows="8" maxlength="160">今の気持ちを入力してね
+                </textarea>
+                </p>
+                <div><input type="submit" value="井戸に叫ぶ"></div>
         </form>
+        </table>
     </div>
-</div>
-
-{% endblock %}
+</body>
+<!-- ここまでが中身 -->
+<!-- {% endblock %} -->
+</html>
