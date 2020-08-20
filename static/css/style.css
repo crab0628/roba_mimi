@@ -8,3 +8,27 @@ label {
     width : 200px;
     height : 100px;
 }
+
+/*  */
+#img_form {
+    display: none;
+}
+
+.form{
+    display:none;
+}
+
+.active {
+    display: block;
+}
+
+.switch_btn {
+    display: inline-block;
+    color: #4e90af;
+    background-color: #e0f5ff;
+    width: 40px;
+    padding: 6px 0;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }

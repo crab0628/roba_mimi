@@ -18,11 +18,27 @@
     <div class="input">
         <form method="post" enctype="multipart/form-data">
             <input type="textarea" class="active">
-            <label for="file"><input type="file" id="file" class="passive" accept="image/*"></label>
+            ファイルを選択
+            <label for="img_form"><input type="file" id="img_form" class="passive" accept="image/*"></label>
             <button type="submit">送信する</button>
         </form>
     </div>
     <a href="check">テスト用リンク</a>
 </div>
 
+<div class="sec1">
+    <div class="switch">
+        <div class="switch_btn">text</div>
+        <div class="switch_btn">img</div>
+    </div>
+
+<form action="/add" method="post">
+    <ul>
+        <li class = "form active"><textarea type="textarea" size="100" maxlength="100"></textarea></li>
+        <li class = "form"><input type="text" size="50" maxlength="50"></li>
+    </ul>
+    <input type="submit" name="save" value="送信">
+    </form>
+
+</div>
 {% endblock %}
