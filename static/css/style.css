@@ -8,20 +8,18 @@ label {
     width : 200px;
     height : 100px;
 }
-
-/*  */
 #img_form {
     display: none;
 }
 
+
+/* フォーム切り替え用装飾 */
 .form{
     display:none;
 }
-
 .active {
     display: block;
 }
-
 .switch_btn {
     display: inline-block;
     color: #4e90af;
