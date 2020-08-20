@@ -5,11 +5,15 @@
 
 /* 画像送信フォーム装飾 */
 label {
-    width : 200px;
-    height : 100px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px 30px;
+    margin: 0 10px 0 0;
+    display: inline-block;
 }
-#img_form {
-    /* display: none; */
+label input {
+    display: none;
 }
 
 /* 入力フォーム装飾 */
