@@ -3,30 +3,40 @@
     font-size: 1px;
 } */
 
-/* 画像送信フォーム装飾 */
-label {
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px 30px;
-    margin: 0 10px 0 0;
+/* テキスト入力、画像送信フォーム装飾 */
+label,textarea {
+    width: 200px;
+    height: 100px;
+    background: fff;
+    color: #000;
     display: inline-block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    padding: 2px;
+    cursor: pointer;
 }
 label input {
     display: none;
 }
 
-/* 入力フォーム装飾 */
+/* 入力フォームサイズ変更禁止 */
 textarea {
     resize: none;
-    width: 200px;
-    height: 100px;
+}
+
+/* 画像アップロード画面 + アイコン装飾 */
+.fas {
+    color: red;
 }
 
 
 /* フォーム切り替え用装飾 */
 .form{
     display:none;
+    width: 200px;
+    height: 100px;
 }
 .active {
     display: block;

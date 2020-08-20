@@ -1,6 +1,6 @@
 # FlaskからimportしてFlaskを使えるようにする
 import sqlite3, os
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
 # appという名でアプリを作る宣言
 app = Flask(__name__)
 
