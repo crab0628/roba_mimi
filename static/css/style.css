@@ -9,7 +9,14 @@ label {
     height : 100px;
 }
 #img_form {
-    display: none;
+    /* display: none; */
+}
+
+/* 入力フォーム装飾 */
+textarea {
+    resize: none;
+    width: 200px;
+    height: 100px;
 }
 
 

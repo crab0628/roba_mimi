@@ -2,43 +2,27 @@
 {% block content %}
 
 <!-- ここに中身を書いていく -->
-<form action="#" method="post">
-    <p>
-    <textarea name="area1" style="width:200px; height:100px;" cols="40" rows="8" maxlength="160">今の気持ちを入力してね
-    </textarea>
-    </p>
-    <div><input type="submit" value="井戸に叫ぶ"></div>
-</form>
-
-<div class="sec1">
-    <div class="switch">
-        <a href="">text</a>
-        <a href="">img</a>
-    </div>
-    <div class="input">
-        <form method="post" enctype="multipart/form-data">
-            <input type="textarea" class="active">
-            ファイルを選択
-            <label for="img_form"><input type="file" id="img_form" class="passive" accept="image/*"></label>
-            <button type="submit">送信する</button>
-        </form>
-    </div>
-    <a href="check">テスト用リンク</a>
-</div>
 
 <div class="sec1">
     <div class="switch">
         <div class="switch_btn">text</div>
         <div class="switch_btn">img</div>
     </div>
+    
+    <div>
+        <form action="/add" method="post" enctype="multipart/form-data">
+            <ul>
+                <li class = "form active"><textarea>今の気持ちを入力してね</textarea></li>
+                <li class = "form"><img src="" alt=""></li>
+            </ul>
 
-    <form action="/add" method="post">
-    <ul>
-        <li class = "form active"><textarea type="textarea" size="100" maxlength="100"></textarea></li>
-        <li class = "form"><input type="text" size="50" maxlength="50"></li>
-    </ul>
-    <input type="submit" name="save" value="送信">
-    </form>
+            <label for="img_form"><input type="file" id="img_form" class="passive" accept="image/*"></label>
+
+            <input type="submit" value="井戸に叫ぶ">
+        </form>
+    </div>
+
+    <a href="check">テスト用リンク</a>
 
 </div>
 {% endblock %}
