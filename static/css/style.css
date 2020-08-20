@@ -51,3 +51,13 @@ textarea {
     border-radius: 3px;
     cursor: pointer;
   }
+
+.intop img { 
+    width: 100%; 
+    position: absolute;
+    top: 50px; 
+}
+
+.indown img { 
+    width: 100%; 
+}
