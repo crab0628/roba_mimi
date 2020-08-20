@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ここに中身を書いていく -->
+
+<div class="sec1">
+    <div class="switch">
+        <div class="switch_btn">text</div>
+        <div class="switch_btn">img</div>
+    </div>
+    
+    <div>
+        <form action="/add" method="post" enctype="multipart/form-data">
+            <ul>
+                <li class = "form active"><textarea>今の気持ちを入力してね</textarea></li>
+                <li class = "form"><img src="" alt=""></li>
+            </ul>
+
+            <label for="img_form"><input type="file" id="img_form" accept="image/*"></label>
+
+            <input type="submit" value="井戸に叫ぶ">
+        </form>
+    </div>
+
+    <a href="check">テスト用リンク</a>
+
+</div>
+{% endblock %}
