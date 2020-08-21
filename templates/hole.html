@@ -1,8 +1,24 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type= "text/css" href= "{{url_for('static',filename='css/style.css')}}" media="screen and (max-width:420px)">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
-<div class="sec3">
-    <a href="out">hole</a>
-</div>
-
-{% endblock %}
+</head>
+<body class="sec3">
+    <div>
+        <div><img src="../static/img/iconking.png" alt="王様"></a>
+            <p>ここに制作実績のテキストが入ります。ここに制作実績のテキストが入ります。ここに制作実績のテキストが入ります。
+            ここに制作実績のテキストが入ります。ここに制作実績のテキストが入ります。ここに制作実績のテキストが入ります。
+            </p>
+        </div>
+        <div>投稿した画像</div>
+        <div>RT,いいね(保留)</div>
+    </div>
+</body>
+<script type="text/javascript" src="{{url_for('static',filename='js/common.js')}}" width="50" height="50></script>
+</html>
