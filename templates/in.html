@@ -11,7 +11,7 @@
     <div>
         <form action="/add" method="post" enctype="multipart/form-data">
             <ul>
-                <li class = "form active"><textarea placeholder="今の気持ちを入力してね"></textarea></li>
+                <li class = "form active"><textarea name="comment" placeholder="今の気持ちを入力してね"></textarea></li>
                 <li class = "form"><label for="img_form"><span class="img_plus"><i class="fas fa-plus"></i></span><input type="file" id="img_form" accept="image/*"></label>
                 </li>
             </ul>
@@ -19,9 +19,15 @@
 
             <ul>   
                 <li class = "form">
-                    <!-- ①試し -->
-                    <input id="file-sample" type="file">
-                    <img id="file-preview">
+                    <!-- 試し① -->
+                    <!-- <input id="file-sample" type="file">
+                    <img id="file-preview"> -->
+
+                    <!-- 試し② -->
+
+                    <form enctype="multipart/form-data" method="post">
+                        <input type="file" name="userfile" accept="image/*">
+                    </form>
                 </li>
             </ul>
 
