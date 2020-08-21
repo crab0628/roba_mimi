@@ -17,9 +17,9 @@ def index():
 def in_html():
     return render_template("in.html")
 
-@app.route("/check")
-def check_html():
-    return render_template("check.html")
+# @app.route("/check")
+# def check_html():
+#     return render_template("check.html")
 
 @app.route("/hole")
 def hole_html():
@@ -31,8 +31,9 @@ def out_html():
 # ページ移動用ルーティング（ここまで）
 
 # コメント送信、登録機能
-@app.route('/add', methods=["POST"])
-def add():
+@app.route('/check', methods=["POST"])
+def add_comment():
+    conn = sqlite3.connect("")
     # 課題2の答えはここ 現在時刻を取得
     # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
