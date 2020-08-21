@@ -91,3 +91,11 @@ textarea {
     border-radius: 3px;
     cursor: pointer;
   }
+
+/* hole分 */
+.sec3 p{
+    font-size: 10px;
+    line-height: 15px;
+	margin-bottom: 15px;
+}
+
