@@ -11,14 +11,16 @@
 </head>
 <body>
     <header>
-        <a href="/"><h1 class="upper_part" style="background-color: aqua;">ロバ耳ロゴ</h1></a>
+        <a href="/"><img src="static/img/logoroba.png"></a>
         
     </header>
+
     {% block content %}
     <!-- ここにメインコンテンツを書く -->
     {% endblock %}
+
     <footer>
-        <h1 class="beneath" style="background-color: hotpink;">copyright©2020</h1>
+        <div>copyright©2020</div>
     </footer>
 </body>
 <script type="text/javascript" src="{{url_for('static',filename='js/common.js')}}"></script>

@@ -5,22 +5,42 @@
 
 /* 背景画像設置 */
 body {
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 10%;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+    margin: 0px;
+    /* -webkit-text-size-adjust: 100%; */
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
-    background-image: url("/static/img/in_htmlup.png"), url("/static/img/in_htmldown.png");
+    background-image: url("/static/img/in_htmlup.png"), url("/static/img/in_html00down.png");
     background-repeat: no-repeat, no-repeat;
     background-position: top, bottom;
   }
 
 /* ヘッダーフッター位置固定 */
-body,#wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+header {
+    margin:0 auto;
+    width: 100%;
+    height: 100px;
+    padding: 5px 0;
+    top: 0;
 }
 footer {
-    margin-top: auto;
+    background-color: white;
+    margin:0 auto;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;/*←絶対位置*/
+    bottom: 0; /*下に固定*/
+}
+
+/* ヘッダーミニロゴサイズ調整 */
+header img {
+    width: 70px;
 }
 
 /* テキスト入力、画像送信フォーム装飾 */
@@ -71,13 +91,3 @@ textarea {
     border-radius: 3px;
     cursor: pointer;
   }
-
-.intop img { 
-    width: 100%; 
-    position: absolute;
-    top: 50px; 
-}
-
-.indown img { 
-    width: 100%; 
-}
