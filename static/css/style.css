@@ -96,37 +96,10 @@ textarea {
 .sec3 p{
     font-size: 12px;
 	line-height: 15px;
-    padding: 30px 30px;
+    padding: 5px 5px;
 }
 
-.sec3{
-    display: flex;
+.sec3 p {
+    overflow: hidden;
+    zoom: 1;
 }
-
-/* コピー */
-
-/* #sec4 .port .portfolio{
-	width: 90%;
-	margin: 40px auto;
-	text-align: left;
-	display: flex;
-}
-
-#sec4 .port .portfolio img{
-	width: 100%;
-}
-
-#sec4 .port .portfolio p{
-	font-size: 14px;
-	margin: 5px 0;
-}
-
-#sec4 .port .portfolio p.port_title{
-	text-align: center;
-	font-size: 18px;
-	margin-top: 10px;
-}
-
-#sec4 .box .portfolio p{
-	margin:50px 50px 0 50px;
-} */
