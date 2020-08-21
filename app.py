@@ -30,6 +30,7 @@ def out_html():
     return render_template("out.html")
 # ページ移動用ルーティング（ここまで）
 
+
 # コメント送信、登録機能
 @app.route('/add', methods=["POST"])
 def add():

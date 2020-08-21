@@ -5,28 +5,20 @@
 <div class="sec1">
     <div class="switch">
         <div class="switch_btn">text</div>
-        <div class="switch_btn">img</div>
+        <div class="switch_btn"><label for="img_form"><input type="file" id="img_form" name="userfile" accept="image/*"><img src="icon.png"></label></div>
     </div>
     
     <div>
         <form action="/add" method="post" enctype="multipart/form-data">
             <ul>
-                <li class = "form active"><textarea name="comment" placeholder="今の気持ちを入力してね"></textarea></li>
-                <li class = "form"><label for="img_form"><span class="img_plus"><i class="fas fa-plus"></i></span><input type="file" id="img_form" accept="image/*"></label>
-                </li>
+                <li class = "form active film"><textarea name="comment" placeholder="今の気持ちを入力してね"></textarea></li>
+                <li class="film"></li>
             </ul>
 
 
             <ul>   
                 <li class = "form">
-                    <!-- 試し① -->
-                    <!-- <input id="file-sample" type="file">
-                    <img id="file-preview"> -->
-
-                    <!-- 試し② -->
-
                     <form enctype="multipart/form-data" method="post">
-                        <input type="file" name="userfile" accept="image/*">
                     </form>
                 </li>
             </ul>

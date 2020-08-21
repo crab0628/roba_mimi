@@ -52,7 +52,7 @@ header img {
 }
 
 /* テキスト入力、画像送信フォーム装飾 */
-label,textarea {
+textarea {
     width: 200px;
     height: 100px;
     background: fff;
@@ -91,14 +91,18 @@ textarea {
 }
 .switch_btn {
     display: inline-block;
-    color: #4e90af;
-    background-color: #e0f5ff;
-    width: 40px;
     padding: 6px 0;
     margin: 0 5px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     cursor: pointer;
   }
+
+/* リスト●削除 */
+ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+}
 
 /* hole分 */
 .sec3 p{

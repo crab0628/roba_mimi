@@ -37,7 +37,7 @@ $(function() {
 
 // 試し②
 $(function() {
-  $('input[type=file]').after('<span></span>');
+  $('li[class=film]').after('<span></span>');
 
   // アップロードするファイルを選択
   $('input[type=file]').change(function() {
