@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, session, redirect, url_for, s
 # appという名でアプリを作る宣言
 app = Flask(__name__)
 
+# Flask では標準で Flask.secret_key を設定すると、sessionを使うことができます。この時、Flask では session の内容を署名付きで Cookie に保存します。
+app.secret_key = 'robamimi'
+
 
 # ページ移動用ルーティング（ここから）
 @app.route("/")
@@ -27,9 +30,28 @@ def out_html():
     return render_template("out.html")
 # ページ移動用ルーティング（ここまで）
 
+# コメント送信、登録機能
+@app.route('/add', methods=["POST"])
+def add():
+    # 課題2の答えはここ 現在時刻を取得
+    # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
+
+    # POSTアクセスならDBに登録する
+    # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
+    comment = request.form.get("comment")
+    conn = sqlite3.connect('comments.db')
+    c = conn.cursor()
+    # 現在の最大ID取得(fetchoneの戻り値はタプル)
+
+    # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
+    # 課題2の答えはここ timeを新たにinsert
+    c.execute("insert into bbs values(null,?,?)", (comment, icon_id))
+    conn.commit()
+    conn.close()
+    return redirect('/hole')
 
 
-# gitテスト用
+
 
 
 
