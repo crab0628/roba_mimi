@@ -26,6 +26,7 @@ html {
     background-image: url("/static/img/in_htmlup.png"), url("/static/img/in_html00down.png");
     background-repeat: no-repeat, no-repeat;
     background-position: top, bottom;
+    background-color: blue;
   }
 
 /* ヘッダーフッター位置固定 */
@@ -37,7 +38,7 @@ header {
     top: 0;
 }
 footer {
-    background-color: white;
+    background-color: red;
     margin:0 auto;
     width: 100%;
     height: 20px;
@@ -108,7 +109,6 @@ label input {
     cursor: pointer;
   }
 
-<<<<<<< HEAD
 /* リスト●削除 */
 ul {
     list-style: none;
@@ -116,10 +116,7 @@ ul {
     padding-left: 0;
 }
 
-/* hole分 */
-=======
 /* hole変更分 */
->>>>>>> 8aff13bfee45e86286dde8f2192f6ffa923f902f
 .sec3 p{
     font-size: 12px;
 	line-height: 15px;
