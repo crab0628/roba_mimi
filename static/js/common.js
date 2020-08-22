@@ -52,8 +52,8 @@ $(function() {
     }
 
     // 新幅・高さ
-    var new_w = 200;
-    var new_h = 200;    
+    var new_w = 120;
+    var new_h = 120;    
 
     // 画像表示
     var reader = new FileReader();

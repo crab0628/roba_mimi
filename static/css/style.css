@@ -48,16 +48,34 @@ footer {
     bottom: 0; /*下に固定*/
 }
 
+/* サイトロゴサイズ調整 */
+.logo {
+    width: 90%;
+}
+.sec0 {
+    text-align: center;
+    margin-top: 60px;
+}
+
 /* ヘッダーミニロゴサイズ調整 */
 header img {
     width: 70px;
 }
 
+/* アイコン選択欄 */
+.select_icon {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* テキスト入力、画像送信フォーム装飾 */
 textarea {
-    /* width: 70%; */
-    height: 100px;
-    background: fff;
+    width: 90%;
+    height: 100%;
+    /* background: fff; */
     color: #000;
     display: inline-block;
 
@@ -67,10 +85,15 @@ textarea {
     padding: 2px;
     cursor: pointer;
 
-    
     resize: none; /* 入力フォームサイズ変更禁止 */
 }
 label input {
+    display: none;
+}
+form {
+    padding-left: 50px;
+}
+.fl {
     display: none;
 }
 
@@ -79,24 +102,28 @@ label input {
     color: darkgray;
 }
 
+/* in.html 表示位置 */
+.sec1 {
+    margin-top: 5%;
+}
+
 /* in.html サイズ調整 */
 .twi {
     width: 90%;
-    display: flex;
     border: 1px solid gray;
     margin: 0 auto;
     padding: 5px;
+    background-color: rgba(255,255,255,0.5);
 }
-.twi img{
-    width: 15%;
-    height: 15%;
+.twi img,.select_icon img{
+    width: 40px;
+    height: 40px;
 }
 
 /* フォーム切り替え用装飾 */
 .form{
     display:none;
-    width: 70%;
-    height: 100px;
+    height: 120px;
 }
 .active {
     display: block;
@@ -112,13 +139,14 @@ label input {
 /* テキスト・画像フォーム切り替えﾎﾞﾀﾝ装飾 */
 .switch_btn img {
     width: 20px;
+    height: 20px;
 }
 
 /* リスト●削除 */
 ul {
     list-style: none;
-    text-align: center;
-    padding-left: 0;
+    padding-inline-start: 0;
+    margin-top: 0;
 }
 
 /* hole変更分 */
