@@ -21,7 +21,7 @@ $(function () {
       $('.selected_icon').eq(clickedIndex).addClass('active_icon');
 
       // テキストエリアの中身書き換え
-      var textValue = $('.selected_icon').eq(clickedIndex).val();
+      var textValue = $(this).val();
       console.log(textValue);
       $('textarea').attr('placeholder', textValue);
     });
