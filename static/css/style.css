@@ -66,21 +66,28 @@ header img {
 .select_icon {
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+}
+.selected_icon{
+    display:none;
+    /* height: 120px; */
+}
+.active_icon {
+    display: block;
 }
 
 /* テキスト入力、画像送信フォーム装飾 */
 textarea {
-    width: 90%;
+    width: 100%;
     height: 100%;
-    /* background: fff; */
     color: #000;
     display: inline-block;
 
     border-style: solid;
-    border-color: black;
+    border-color: gray;
     border-image: initial;
     padding: 2px;
     cursor: pointer;
@@ -91,10 +98,14 @@ label input {
     display: none;
 }
 form {
-    padding-left: 50px;
+    padding-left: 10px;
+    width: 80%;
 }
 .fl {
     display: none;
+}
+.flex {
+    display: flex;
 }
 
 /* 画像アップロード画面アイコン装飾 */
@@ -134,6 +145,9 @@ form {
     margin: 0 5px;
     /* border-radius: 3px; */
     cursor: pointer;
+}
+.switch {
+    padding-left: 46px;
 }
 
 /* テキスト・画像フォーム切り替えﾎﾞﾀﾝ装飾 */
