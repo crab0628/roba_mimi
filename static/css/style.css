@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
-	overflow-y: scroll; /* IEへの対応 http://www.htmq.com/style/overflow-y.shtml */
+    overflow-y: scroll; /* IEへの対応 http://www.htmq.com/style/overflow-y.shtml */
+    overflow-x: hidden;
 	/*Internet Explorerが独自に追加したプロパティ*/
 	/*画面に収まりきれなかったときにスクロールして表示することを許可するか否か*/
 }
@@ -53,25 +54,23 @@ header img {
 
 /* テキスト入力、画像送信フォーム装飾 */
 textarea {
-    width: 200px;
+    /* width: 70%; */
     height: 100px;
     background: fff;
     color: #000;
     display: inline-block;
-    border-width: 1px;
+
     border-style: solid;
     border-color: black;
     border-image: initial;
     padding: 2px;
     cursor: pointer;
+
+    
+    resize: none; /* 入力フォームサイズ変更禁止 */
 }
 label input {
     display: none;
-}
-
-/* 入力フォームサイズ変更禁止 */
-textarea {
-    resize: none;
 }
 
 /* 画像アップロード画面アイコン装飾 */
@@ -79,11 +78,23 @@ textarea {
     color: darkgray;
 }
 
+/*  */
+.twi {
+    width: 90%;
+    display: flex;
+    border: 1px solid gray;
+    margin: 0 auto;
+    padding: 5px;
+}
+.twi img{
+    width: 15%;
+    height: 15%;
+}
 
 /* フォーム切り替え用装飾 */
 .form{
     display:none;
-    width: 200px;
+    width: 70%;
     height: 100px;
 }
 .active {
