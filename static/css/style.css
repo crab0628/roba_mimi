@@ -13,7 +13,7 @@ html {
 } */
 
 /* 背景画像設置 */
-body {
+.base {
     min-height: 100vh;
     position: relative;/*←相対位置*/
     padding-bottom: 10%;/*←footerの高さ*/
@@ -78,7 +78,7 @@ label input {
     color: darkgray;
 }
 
-/*  */
+/* in.html サイズ調整 */
 .twi {
     width: 90%;
     display: flex;
@@ -108,6 +108,7 @@ label input {
     cursor: pointer;
   }
 
+<<<<<<< HEAD
 /* リスト●削除 */
 ul {
     list-style: none;
@@ -116,9 +117,16 @@ ul {
 }
 
 /* hole分 */
+=======
+/* hole変更分 */
+>>>>>>> 8aff13bfee45e86286dde8f2192f6ffa923f902f
 .sec3 p{
-    font-size: 10px;
-    line-height: 15px;
-	margin-bottom: 15px;
+    font-size: 12px;
+	line-height: 15px;
+    padding: 5px 5px;
 }
 
+.sec3 p {
+    overflow: hidden;
+    zoom: 1;
+}
