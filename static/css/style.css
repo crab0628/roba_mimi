@@ -48,6 +48,12 @@ footer {
     bottom: 0; /*下に固定*/
 }
 
+/* コピーライト */
+.copyright{
+    font-size: 10px;
+    text-align:center;
+}
+
 /* サイトロゴサイズ調整 */
 .logo {
     width: 75%;
@@ -115,7 +121,7 @@ form {
 
 /* in.html 表示位置 */
 .sec1 {
-    margin-top: 5%;
+    margin-top: 100px;
 }
 
 /* in.html サイズ調整 */
