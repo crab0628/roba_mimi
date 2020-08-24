@@ -164,16 +164,11 @@ ul {
     margin-top: 0;
 }
 
-/* hole変更分 */
-.sec3 p{
-    font-size: 12px;
-	line-height: 15px;
-    padding: 5px 5px;
-}
-
-.sec3 p {
-    overflow: hidden;
-    zoom: 1;
+/* check 過去投稿表示 */
+.bbs_content{
+	border-bottom:1px solid #111;
+	width:60%;
+	margin:30px auto 0;
 }
 
 /* check ﾓｰﾀﾞﾙ */

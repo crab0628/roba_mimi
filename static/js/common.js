@@ -24,8 +24,8 @@ $(function () {
       // var textValue = $(this).val();
       // console.log(textValue);
       // $('textarea').attr('placeholder', textValue);
-    });
-  });
+  //   });
+  // });
 
 
 

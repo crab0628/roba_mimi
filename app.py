@@ -32,9 +32,9 @@ def out_html():
 
 
 # コメント送信、登録機能
-@app.route('/check', methods=["POST"])
+@app.route('/add', methods=["POST"])
 def add_comment():
-    conn = sqlite3.connect("")
+    conn = sqlite3.connect("comments.db")
     # 課題2の答えはここ 現在時刻を取得
     # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
@@ -47,43 +47,70 @@ def add_comment():
 
     # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
     # 課題2の答えはここ timeを新たにinsert
-    c.execute("insert into bbs values(null,?,?)", (comment, icon_id))
+    c.execute("insert into comments values(null,?)", (comment,))
     conn.commit()
     conn.close()
-    return redirect('/hole')
+    return redirect('/check')
 
-# 
-@app.route('/check')
-def bbs():
-        # クッキーからuser_idを取得
-        conn = sqlite3.connect('comments.db')
+# check 表示
+@app.route('/edit/<int:id>')
+def edit(id):
+    if 'user_id' in session :
+        conn = sqlite3.connect('service.db')
         c = conn.cursor()
-        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
-        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
-        # c.execute("select * from comments")
-        # fetchoneはタプル型
-        user_info = c.fetchone()
-        c.execute("select comment,user_id from comments ")
-        comment_list = []
-        for row in c.fetchall():
-            comment_list.append({"user_id": row[0], "comment": row[1]})
+        c.execute("select comment from bbs where id = ?", (id,) )
+        comment = c.fetchone()
+        conn.close()
 
-        c.close()
-        return render_template('in.html' , user_info = user_info , comment_list = comment_list)
+        if comment is not None:
+            # None に対しては インデクス指定できないので None 判定した後にインデックスを指定
+            comment = comment[0]
+            # "りんご" ○   ("りんご",) ☓
+            # fetchone()で取り出したtupleに 0 を指定することで テキストだけをとりだす
+        else:
+            return "アイテムがありません" # 指定したIDの name がなければときの対処
+
+        item = { "id":id, "comment":comment }
+
+        return render_template("edit.html", comment=item)
+    else:
+        return redirect("/login")
 
 
-# コメント削除機能
-# @app.route('/del' ,methods=["POST"])
-# def del_task():
-#     # クッキーから user_id を取得
-#     id = request.form.get("comment_id")
-#     id = int(id)
-#     conn = sqlite3.connect("comments.db")
-#     c = conn.cursor()
-#     c.execute("update comments set flag = 1 where id = ?", (id,))
-#     conn.commit()
-#     c.close()
-#     return redirect("/bbs")
+# /add ではPOSTを使ったので /edit ではあえてGETを使う
+@app.route("/edit")
+def update_item():
+    if 'user_id' in session :
+        # ブラウザから送られてきたデータを取得
+        item_id = request.args.get("item_id") # id
+        item_id = int(item_id)# ブラウザから送られてきたのは文字列なので整数に変換する
+        comment = request.args.get("comment") # 編集されたテキストを取得する
+
+        # 既にあるデータベースのデータを送られてきたデータに更新
+        conn = sqlite3.connect('service.db')
+        c = conn.cursor()
+        c.execute("update bbs set comment = ? where id = ?",(comment,item_id))
+        conn.commit()
+        conn.close()
+
+        # アイテム一覧へリダイレクトさせる
+        return redirect("/bbs")
+    else:
+        return redirect("/login")
+
+
+@app.route('/del' ,methods=["POST"])
+def del_task():
+    # クッキーから user_id を取得
+    id = request.form.get("comment_id")
+    id = int(id)
+    conn = sqlite3.connect("service.db")
+    c = conn.cursor()
+    c.execute("update bbs set flag = 1 where id = ?", (id,))
+    conn.commit()
+    c.close()
+    return redirect("/bbs")
+
 
 
 
