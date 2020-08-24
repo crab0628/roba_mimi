@@ -36,7 +36,7 @@ header {
     height: 100px;
     padding: 5px 0;
     top: 0;
-    text-align: center;
+    /* text-align: center; */
 }
 footer {
     background-color: #ffe77e;
@@ -60,7 +60,7 @@ footer {
 
 /* ヘッダーミニロゴサイズ調整 */
 header img {
-    width: 70%;
+    width: 50%;
 }
 
 /* アイコン選択欄 */
