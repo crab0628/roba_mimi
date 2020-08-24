@@ -52,52 +52,39 @@ def add_comment():
     conn.close()
     return redirect('/check')
 
-# check 表示
-@app.route('/edit/<int:id>')
-def edit(id):
-    if 'user_id' in session :
-        conn = sqlite3.connect('service.db')
+# check コメント表示
+@app.route('/check')
+def bbs():
+    # if 'user_id' in session :
+        # クッキーからuser_idを取得
+        # user_id = session['user_id']
+        conn = sqlite3.connect('comments.db')
         c = conn.cursor()
-        c.execute("select comment from bbs where id = ?", (id,) )
-        comment = c.fetchone()
-        conn.close()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        c.execute("select * from comments")
+        # fetchoneはタプル型
+        user_info = c.fetchone()
+        print(user_info[0])
+        c.execute("select id,comment from bbs where userid = ? and flag is null order by id", (user_id,))
+        comment_list = []
+        for row in c.fetchall():
+            comment_list.append({"id": row[0], "comment": row[1]})
 
-        if comment is not None:
-            # None に対しては インデクス指定できないので None 判定した後にインデックスを指定
-            comment = comment[0]
-            # "りんご" ○   ("りんご",) ☓
-            # fetchone()で取り出したtupleに 0 を指定することで テキストだけをとりだす
-        else:
-            return "アイテムがありません" # 指定したIDの name がなければときの対処
+        c.close()
+        return render_template('bbs.html' , user_info = user_info , comment_list = comment_list)
+    # else:
+    #     return redirect("/login")
 
-        item = { "id":id, "comment":comment }
-
-        return render_template("edit.html", comment=item)
-    else:
-        return redirect("/login")
-
-
-# /add ではPOSTを使ったので /edit ではあえてGETを使う
-@app.route("/edit")
-def update_item():
-    if 'user_id' in session :
-        # ブラウザから送られてきたデータを取得
-        item_id = request.args.get("item_id") # id
-        item_id = int(item_id)# ブラウザから送られてきたのは文字列なので整数に変換する
-        comment = request.args.get("comment") # 編集されたテキストを取得する
-
-        # 既にあるデータベースのデータを送られてきたデータに更新
-        conn = sqlite3.connect('service.db')
-        c = conn.cursor()
-        c.execute("update bbs set comment = ? where id = ?",(comment,item_id))
-        conn.commit()
-        conn.close()
-
-        # アイテム一覧へリダイレクトさせる
-        return redirect("/bbs")
-    else:
-        return redirect("/login")
-
+@app.route("/dbtest")
+def dbtest():
+    conn = sqlite3.connect("comments.db")
+    c = conn.cursor()
+# 課題1 誰か一人分の情報
+    c.execute("SELECT id, comment FROM comments")
+    staff_info = c.fetchone() # fetchall()は複数行
+    c.close()
+    print(staff_info)
 
 @app.route('/del' ,methods=["POST"])
 def del_task():
