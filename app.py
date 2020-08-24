@@ -52,6 +52,39 @@ def add_comment():
     conn.close()
     return redirect('/hole')
 
+# 
+@app.route('/check')
+def bbs():
+        # クッキーからuser_idを取得
+        conn = sqlite3.connect('comments.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        # c.execute("select * from comments")
+        # fetchoneはタプル型
+        user_info = c.fetchone()
+        c.execute("select comment,user_id from comments ")
+        comment_list = []
+        for row in c.fetchall():
+            comment_list.append({"user_id": row[0], "comment": row[1]})
+
+        c.close()
+        return render_template('in.html' , user_info = user_info , comment_list = comment_list)
+
+
+# コメント削除機能
+# @app.route('/del' ,methods=["POST"])
+# def del_task():
+#     # クッキーから user_id を取得
+#     id = request.form.get("comment_id")
+#     id = int(id)
+#     conn = sqlite3.connect("comments.db")
+#     c = conn.cursor()
+#     c.execute("update comments set flag = 1 where id = ?", (id,))
+#     conn.commit()
+#     c.close()
+#     return redirect("/bbs")
+
 
 
 

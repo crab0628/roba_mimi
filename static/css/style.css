@@ -26,7 +26,7 @@ html {
     background-image: url("/static/img/in_htmlup.png"), url("/static/img/in_html00down.png");
     background-repeat: no-repeat, no-repeat;
     background-position: top, bottom;
-    background-color: black;
+    background-color: #362d4d;
   }
 
 /* ヘッダーフッター位置固定 */
@@ -36,9 +36,10 @@ header {
     height: 100px;
     padding: 5px 0;
     top: 0;
+    text-align: center;
 }
 footer {
-    background-color: white;
+    background-color: #ffe77e;
     margin:0 auto;
     width: 100%;
     height: 20px;
@@ -59,7 +60,7 @@ footer {
 
 /* ヘッダーミニロゴサイズ調整 */
 header img {
-    width: 70px;
+    width: 70%;
 }
 
 /* アイコン選択欄 */
@@ -115,7 +116,7 @@ form {
 
 /* in.html 表示位置 */
 .sec1 {
-    margin-top: 5%;
+    margin-top: 20%;
 }
 
 /* in.html サイズ調整 */

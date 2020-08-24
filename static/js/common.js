@@ -9,21 +9,21 @@
 
 $(function () {
 
-  // アイコン選択
-  $(function () {
-    $('.icons').click(function () {
-      $('.active_icon').removeClass('active_icon');
+  // // アイコン選択
+  // $(function () {
+  //   $('.icons').click(function () {
+  //     $('.active_icon').removeClass('active_icon');
 
       // 変数clickedIndexを定義し、クリックしたボタンのインデックス番号を代入してください
-      var clickedIndex = $('.icons').index($(this));
+      // var clickedIndex = $('.icons').index($(this));
 
       // eqの引数をclickedIndexに書き換えてください
-      $('.selected_icon').eq(clickedIndex).addClass('active_icon');
+      // $('.selected_icon').eq(clickedIndex).addClass('active_icon');
 
       // テキストエリアの中身書き換え
-      var textValue = $(this).val();
-      console.log(textValue);
-      $('textarea').attr('placeholder', textValue);
+      // var textValue = $(this).val();
+      // console.log(textValue);
+      // $('textarea').attr('placeholder', textValue);
     });
   });
 

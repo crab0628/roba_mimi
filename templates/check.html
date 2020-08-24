@@ -2,10 +2,15 @@
 {% block content %}
 
 <div class="sec2">
-    <div id="modal-content">
-        <p>「閉じる」か「背景」をクリックするとモーダルウィンドウを終了します。</p>
-        <p><a id="modal-close" class="button-link">閉じる</a></p>
-    </div>
+    {% for item in comment_list %}
+  <div class="bbs_content">
+    <p>{{item["comment"]}}</p>
+      <form action="/del" method="post">
+        <input type="hidden" name="comment_id" value="{{item['id']}}">
+        <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")'>
+    </form><br><br>"
+  </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
