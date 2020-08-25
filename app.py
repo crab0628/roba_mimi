@@ -53,38 +53,23 @@ def add_comment():
     return redirect('/check')
 
 # check コメント表示
-@app.route('/check')
+@app.route('/bbs')
 def bbs():
-    # if 'user_id' in session :
-        # クッキーからuser_idを取得
-        # user_id = session['user_id']
-        conn = sqlite3.connect('comments.db')
+        conn = sqlite3.connect('roba_mimi.db')
         c = conn.cursor()
         # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
         # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
-        c.execute("select * from comments")
+        # c.execute("select name from user where id = ?", (user_id,))
         # fetchoneはタプル型
-        user_info = c.fetchone()
-        print(user_info[0])
-        c.execute("select id,comment from bbs where userid = ? and flag is null order by id", (user_id,))
+        # user_info = c.fetchone()
+        # print(user_info)
+        c.execute("select id,comment from bbs")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
 
         c.close()
-        return render_template('bbs.html' , user_info = user_info , comment_list = comment_list)
-    # else:
-    #     return redirect("/login")
-
-@app.route("/dbtest")
-def dbtest():
-    conn = sqlite3.connect("comments.db")
-    c = conn.cursor()
-# 課題1 誰か一人分の情報
-    c.execute("SELECT id, comment FROM comments")
-    staff_info = c.fetchone() # fetchall()は複数行
-    c.close()
-    print(staff_info)
+        return render_template('bbs.html' , comment_list = comment_list)
 
 @app.route('/del' ,methods=["POST"])
 def del_task():

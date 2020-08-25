@@ -49,6 +49,12 @@ footer {
     bottom: 0; /*下に固定*/
 }
 
+/* コピーライト */
+.copyright{
+    font-size: 10px;
+    text-align:center;
+}
+
 /* サイトロゴサイズ調整 */
 .logo {
     width: 90%;
