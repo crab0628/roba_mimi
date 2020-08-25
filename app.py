@@ -34,20 +34,20 @@ def out_html():
 # コメント送信、登録機能
 @app.route('/add', methods=["POST"])
 def add_comment():
-    conn = sqlite3.connect("comments.db")
+    conn = sqlite3.connect("roba_mimi.db")
     # 課題2の答えはここ 現在時刻を取得
     # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
     # POSTアクセスならDBに登録する
     # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
     comment = request.form.get("comment")
-    conn = sqlite3.connect('comments.db')
+    conn = sqlite3.connect('roba_mimi.db')
     c = conn.cursor()
     # 現在の最大ID取得(fetchoneの戻り値はタプル)
 
     # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
     # 課題2の答えはここ timeを新たにinsert
-    c.execute("insert into comments values(null,?)", (comment,))
+    c.execute("insert into bbs values(null,?)", (comment,))
     conn.commit()
     conn.close()
     return redirect('/check')
@@ -63,7 +63,7 @@ def bbs():
         # fetchoneはタプル型
         # user_info = c.fetchone()
         # print(user_info)
-        c.execute("select id,comment from bbs")
+        c.execute("select id,comment from bbs order by id DESC")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
