@@ -5,6 +5,22 @@
 <div>
 
   {% for item in comment_list %}
+  <!-- 画像ランダム表示 -->
+  <!-- <script type="text/javascript"> -->
+    var imglist = new Array(
+       "../static/img/iconashi.png",
+       "../static/img/iconOblue.png",
+       "../static/img/iconOgreen.png",
+       "../static/img/iconOred.png",
+       "../static/img/iconOyellow.png",
+       "../static/img/iconking.png",
+       "../static/img/iconroba.png");
+       
+    var selectnum = Math.floor(Math.random() * imglist.length);
+    var output = "<img src=" + imglist[selectnum] + ">";
+    document.write(output);
+ <!-- </script> -->
+
   <div class="twi">
     <p>{{item["comment"]}}</p>
       <a href="/edit/{{item['id']}}">編集</a>
