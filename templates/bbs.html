@@ -4,22 +4,8 @@
 
 <div>
 
-  {% if img_url %}
-<p><img src="{{ img_url }}"></p>
-  {% endif %}
-<form method="post" action="/send" enctype="multipart/form-data">
-  <input type="file" id="img_file" name="img_file" class="col-sm-4">
-  <input type="submit" value="送信" class="btn">
-</form>
-
-  <form action="/add" method="post">
-    内容：<textarea name="comment" cols="30" rows="5"></textarea><br>
-    <input type="submit" name="save" value="送信">
-  </form>
-
-
   {% for item in comment_list %}
-  <div class="bbs_content">
+  <div class="twi">
     <p>{{item["comment"]}}</p>
       <a href="/edit/{{item['id']}}">編集</a>
       <form action="/del" method="post">
