@@ -5,14 +5,16 @@
 <div>
 
   {% for item in comment_list %}
+
+  <div class="twi">
   <!-- 画像ランダム表示 -->
   <script type="text/javascript">
     var imglist = new Array(
        "../static/img/iconashi.png",
-       "../static/img/iconOblue.png",
-       "../static/img/iconOgreen.png",
-       "../static/img/iconOred.png",
-       "../static/img/iconOyellow.png",
+       "../static/img/iconc0blue.png",
+       "../static/img/iconc0green.png",
+       "../static/img/iconc0red.png",
+       "../static/img/iconc0yellow.png",
        "../static/img/iconking.png",
        "../static/img/iconroba.png");
 
@@ -20,8 +22,6 @@
     var output = "<img src=" + imglist[selectnum] + ">";
     document.write(output);
  </script>
-
-  <div class="twi">
     <p>{{item["comment"]}}</p>
       <a href="/edit/{{item['id']}}">編集</a>
       <form action="/del" method="post">
