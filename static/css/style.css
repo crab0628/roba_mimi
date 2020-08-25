@@ -60,7 +60,7 @@ footer {
     width: 60%;
 }
 .sec0 {
-    font-family: "Yu Mincho";
+    font-family: "ms pgothic";
     color: #fff;
     text-align: center;
     margin-top: 70px;
@@ -145,7 +145,8 @@ form {
 
 .button-in {
     display       : inline-block;
-    margin-left: auto;
+    text-align: right;
+    margin-left: 130px;
     margin-right : 10px ; 
     border-radius : 5%;          /* 角丸       */
     font-size     : 10pt;        /* 文字サイズ */
