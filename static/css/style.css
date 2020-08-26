@@ -170,11 +170,30 @@ ul {
     margin-top: 0;
 }
 
+/* check 最新投稿 */
+.new {
+    width: 90%;
+    border: 1px solid gray;
+    margin: 120px auto;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.5);
+}
+.new img {
+    width: 40px;
+    height: 40px;
+}
+
 /* check 過去投稿表示 */
-.bbs_content{
-	border-bottom:1px solid #111;
-	width:60%;
-	margin:30px auto 0;
+.bbs {
+    width: 90%;
+    border: 1px solid gray;
+    margin: 30px auto;
+    padding: 5px;
+    background-color: rgba(255,255,255,0.5);
+}
+.bbs img {
+    width: 40px;
+    height: 40px;
 }
 
 /* check ﾓｰﾀﾞﾙ */

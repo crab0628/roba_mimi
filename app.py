@@ -52,7 +52,7 @@ def add_comment():
     conn.close()
     return redirect('/check')
 
-# check コメント表示
+# bbs コメント表示
 @app.route('/bbs')
 def bbs():
         conn = sqlite3.connect('roba_mimi.db')
@@ -63,20 +63,46 @@ def bbs():
         # fetchoneはタプル型
         # user_info = c.fetchone()
         # print(user_info)
-        c.execute("select id,comment from bbs order by id DESC")
+        c.execute("select max(id),comment from bbs where flag is not 1")
+        comment_new = c.fetchone()
+        # print(comment_new)
+        # 最新コメント↑、それ以外↓
+        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
 
         c.close()
-        return render_template('bbs.html' , comment_list = comment_list)
+        return render_template('bbs.html' , comment_list = comment_list , comment_new = comment_new)
+
+@app.route('/check')
+def check():
+        conn = sqlite3.connect('roba_mimi.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        # c.execute("select name from user where id = ?", (user_id,))
+        # fetchoneはタプル型
+        # user_info = c.fetchone()
+        # print(user_info)
+        # c.execute("select max(id),comment from bbs where flag is not 1")
+        # comment_new = c.fetchone()
+        # print(comment_new)
+        # 最新コメント↑、それ以外↓
+        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        comment_list = []
+        for row in c.fetchall():
+            comment_list.append({"id": row[0], "comment": row[1]})
+
+        c.close()
+        return render_template('check.html' , comment_list = comment_list )
 
 @app.route('/del' ,methods=["POST"])
 def del_task():
     # クッキーから user_id を取得
     id = request.form.get("comment_id")
     id = int(id)
-    conn = sqlite3.connect("service.db")
+    conn = sqlite3.connect("roba_mimi.db")
     c = conn.cursor()
     c.execute("update bbs set flag = 1 where id = ?", (id,))
     conn.commit()

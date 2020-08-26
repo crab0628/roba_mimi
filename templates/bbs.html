@@ -4,15 +4,28 @@
 
 <div>
 
+  <div class="new">
+    <div class="flex">
+      <img src="static/img/icon.png" class="selected_icon active_icon">
+      <p>{{comment_new[1]}}</p>
+    </div>
+    <form action="/del" method="post">
+      <input type="hidden" name="comment_id" value="{{comment_new[0]}}">
+      <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")'>
+    </form>
+  </div>
+
   {% for item in comment_list %}
-  <div class="twi">
-    <p>{{item["comment"]}}</p>
-      <a href="/edit/{{item['id']}}">編集</a>
-      <form action="/del" method="post">
-        <input type="hidden" name="comment_id" value="{{item['id']}}">
-        <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")'>
-    </form><br><br>"
-  </div>  
+  <div class="bbs">
+    <div class="flex">
+      <img src="static/img/icon.png" class="selected_icon active_icon">
+      <p>{{item["comment"]}}</p>
+    </div>
+    <form action="/del" method="post">
+      <input type="hidden" name="comment_id" value="{{item['id']}}">
+      <input type="submit" name="delete" value="非表示" onclick='return confirm("本当に削除しますか？")'>
+    </form>
+  </div>
   {% endfor %}
 
 

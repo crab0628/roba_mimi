@@ -15,11 +15,11 @@
 
     <!-- 入力フォーム（透けてるとこ） -->
     <div class="twi">
-        <div class="switch">
+        <!-- <div class="switch">
             <div class="switch_btn"><img src="static/img/icon03text.png"></div>
             <div class="switch_btn"><label for="img_form"><input type="file" id="img_form" name="userfile"
                         accept="image/*"><img src="static/img/icon01pic.png"></label></div>
-        </div>
+        </div> -->
         <div class="flex">
             <div class="text_value">
                 <img src="static/img/icon.png" class="selected_icon active_icon">
@@ -31,9 +31,9 @@
             <form action="/add" method="post" enctype="multipart/form-data">
                 <ul>
                     <li class="form active film"><textarea name="comment" class="status" placeholder="画像は保存されません"></textarea></li>
-                    <li class="form film">
-                        <p class="fl"></p>
-                    </li>
+                    <!-- <li class="form film"> -->
+                        <!-- <p class="fl"></p>
+                    </li> -->
                 </ul>
 
                 <input type="submit" value="井戸に叫ぶ">
@@ -42,6 +42,7 @@
     </div>
 
     <a href="check">テスト用リンク</a>
+    <input type="submit" value="井戸に叫ぶ">
 
 </div>
 {% endblock %}
