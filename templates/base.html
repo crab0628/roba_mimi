@@ -15,9 +15,16 @@
         
     </header>
 
-    {% block content %}
-    <!-- ここにメインコンテンツを書く -->
-    {% endblock %}
+    <!-- PCとSP振り分け -->
+    <div class="sp_dsp">
+        {% block content %}
+        <!-- ここにメインコンテンツを書く -->
+        {% endblock %}
+    </div>
+    <div class="pc_dsp">
+        <h1>このページにQRコード表示</h1>
+    </div>
+    <!-- PCとSP振り分け 終-->
 
     <footer>
         <div class="copyright">copyright©2020 team_name</div>

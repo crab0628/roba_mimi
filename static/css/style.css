@@ -258,3 +258,20 @@ ul {
 	height:120%;
 	background-color:rgba(0,0,0,0.75);
 }
+
+/* PCとSP振り分け */
+.pc_dsp {
+    display: block;
+}
+.sp_dsp {
+    display: none;
+}
+
+@media only screen and (max-width: 420){
+    .pc_dsp {
+        display: none;
+    }
+    .sp_dsp {
+        display: block;
+    }
+}
