@@ -29,9 +29,9 @@
  </script>
     <p>{{item["comment"]}}</p>
   </div>
-      <form action="/del" method="post">
+      <form action="/del" method="post" class="dust">
         <input type="hidden" name="comment_id" value="{{item['id']}}">
-        <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")' class="button-in">
+        <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete" onclick='return confirm("不適切な内容ですか？")'>
     </form>
   </div>  
   {% endfor %}
@@ -40,8 +40,8 @@
 </div>
 
 
-<div>
-  <a href="/in">井戸に戻る</a>
+<div class="button-out">
+    <a href="/in">井戸に戻る</a>
 </div>
 
 {% endblock %}

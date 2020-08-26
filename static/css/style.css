@@ -14,6 +14,7 @@ html {
 
 /* 背景画像設置 */
 .base {
+    font-family: "ms pgothic";
     min-height: 100vh;
     position: relative;/*←相対位置*/
     padding-top: 50px;
@@ -36,10 +37,13 @@ header {
     background-color: #fff;
     margin:0 auto;
     width: 100%;
-    height: 50px;
+    height: 60px;
     padding: 5px 0;
     top: 0;
-    /* text-align: center; */
+    text-align: center;
+}
+header img {
+    padding-right: 10px;
 }
 footer {
     background-color: #ffe77e;
@@ -54,7 +58,9 @@ footer {
 
 /* コピーライト */
 .copyright{
-    font-size: 10px;
+    display: block;
+    margin-top: 3px;
+    font-size: 13px;
     text-align:center;
 }
 
@@ -146,6 +152,7 @@ form {
     /* background    : #ffffff;     文字色     */
 }
 .button-in {
+    font-family: "ms pgothic";
     display       : inline-block;
     text-align: right;
     margin-left: 130px;
@@ -167,6 +174,39 @@ form {
     color         : #000066;     /* 背景色     */
     background    : #ffffff;     /* 文字色     */
 }
+
+/* リンク詳細 */
+.button-out {
+    font-family: "ms pgothic";
+    display: block;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-left: auto;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 12pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+}
+.button-out:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000066;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+}
+
+a:link {
+    color:#fff;
+    text-decoration:underline;
+}
+a:visited {
+color:#fff;
+text-decoration:underline;
+}
+
+    
 
 
 /* フォーム切り替え用装飾 */
@@ -205,6 +245,7 @@ ul {
 .new {
     margin: 0 auto;
     margin-top: 150px;
+    font-family: "ms pgothic";
     width: 90%;
     border: 1px solid gray;
     border-collapse: separate;
@@ -221,6 +262,8 @@ ul {
 /* bbs 過去投稿表示 */
 .bbs {
     margin: 30px auto;
+    font-family: "ms pgothic";
+    font-size: 15px;
     width: 90%;
     border: 1px solid gray;
     border-collapse: separate;
@@ -233,8 +276,22 @@ ul {
     width: 40px;
     height: 40px;
 }
+p {
+    padding: 0 10px;
+}
 
 /* check レイアウト */
 .check {
     margin-top: 150px;
+}
+
+/* ゴミ箱アイコン */
+#dust {
+    width: 20px;
+    height: 20px;
+}
+.dust {
+    width: 90%;
+    text-align: right;
+    margin-right: 0;
 }

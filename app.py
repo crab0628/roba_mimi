@@ -67,7 +67,7 @@ def bbs():
         comment_new = c.fetchone()
         # print(comment_new)
         # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        c.execute("select id,comment from bbs where flag is not 1 order by random()")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
@@ -89,7 +89,7 @@ def check():
         comment_new = c.fetchone()
         # print(comment_new)
         # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        c.execute("select id,comment from bbs where flag is not 1 order by random()")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
