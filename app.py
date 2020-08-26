@@ -17,9 +17,9 @@ def index():
 def in_html():
     return render_template("in.html")
 
-@app.route("/check")
-def check_html():
-    return render_template("check.html")
+# @app.route("/check")
+# def check_html():
+#     return render_template("check.html")
 
 @app.route("/hole")
 def hole_html():
@@ -47,10 +47,10 @@ def add_comment():
 
     # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
     # 課題2の答えはここ timeを新たにinsert
-    c.execute("insert into bbs values(null,?)", (comment,))
+    c.execute("insert into bbs values(null,?,null)", (comment,))
     conn.commit()
     conn.close()
-    return redirect('/check')
+    return redirect('/bbs')
 
 # bbs コメント表示
 @app.route('/bbs')
@@ -67,7 +67,7 @@ def bbs():
         comment_new = c.fetchone()
         # print(comment_new)
         # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        c.execute("select id,comment from bbs where flag is not 1 order by random()")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
@@ -85,17 +85,17 @@ def check():
         # fetchoneはタプル型
         # user_info = c.fetchone()
         # print(user_info)
-        # c.execute("select max(id),comment from bbs where flag is not 1")
-        # comment_new = c.fetchone()
+        c.execute("select max(id),comment from bbs where flag is not 1")
+        comment_new = c.fetchone()
         # print(comment_new)
         # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        c.execute("select id,comment from bbs where flag is not 1 order by random()")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
 
         c.close()
-        return render_template('check.html' , comment_list = comment_list )
+        return render_template('check.html' , comment_list = comment_list , comment_new = comment_new)
 
 @app.route('/del' ,methods=["POST"])
 def del_task():
@@ -107,7 +107,7 @@ def del_task():
     c.execute("update bbs set flag = 1 where id = ?", (id,))
     conn.commit()
     c.close()
-    return redirect("/bbs")
+    return redirect("/check")
 
 
 
