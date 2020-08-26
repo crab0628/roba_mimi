@@ -33,7 +33,7 @@ html {
 header {
     margin:0 auto;
     width: 100%;
-    height: 50px;
+    /* height: 50px; */
     padding: 5px 0;
     top: 0;
     /* text-align: center; */
@@ -53,24 +53,31 @@ footer {
 .copyright{
     font-size: 10px;
     text-align:center;
+    margin-top: 3px;
 }
 
 /* サイトロゴサイズ調整 */
 .logo {
-    width: 75%;
+    width: 60%;
 }
 .sec0 {
+    font-family: "ms pgothic";
+    color: #fff;
     text-align: center;
-
+    margin-top: 70px;
 }
 
 /* ヘッダーミニロゴサイズ調整 */
 header img {
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 50%;
 =======
     width: 90%;
 >>>>>>> fukuda
+=======
+    width: 80%;
+>>>>>>> 9aa2c17f568238e652a90d5650ad37b4a20d0fd4
 }
 
 /* アイコン選択欄 */
@@ -127,16 +134,23 @@ form {
 /* in.html 表示位置 */
 .sec1 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     margin-top: 20%;
 =======
     margin-top: 100px;
 >>>>>>> fukuda
+=======
+    margin-top: 70px;
+>>>>>>> 9aa2c17f568238e652a90d5650ad37b4a20d0fd4
 }
 
 /* in.html サイズ調整 */
 .twi {
     width: 90%;
     border: 1px solid gray;
+    border-collapse: separate;
+    border-radius: 20px;
+    border-spacing: 0;
     margin: 0 auto;
     padding: 5px;
     background-color: rgba(255,255,255,0.5);
@@ -144,6 +158,29 @@ form {
 .twi img,.select_icon img{
     width: 40px;
     height: 40px;
+}
+
+.button-in {
+    display       : inline-block;
+    text-align: right;
+    margin-left: 130px;
+    margin-right : 10px ; 
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 10pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 10px 10px;   /* 余白       */
+    background    : #d2d2d2;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px 3px #666666;  /* 影の設定 */
+    border        : 2px solid #d2d2d2;    /* 枠の指定 */
+}
+.button-in:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #000066;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
 }
 
 /* フォーム切り替え用装飾 */
