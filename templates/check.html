@@ -1,48 +1,8 @@
-{% extends "base.html" %}
-{% block content %}
-
-<div>
-
-    {% if img_url %}
-  <p><img src="{{ img_url }}"></p>
-    {% endif %}
-  <form method="post" action="/send" enctype="multipart/form-data">
-    <input type="file" id="img_file" name="img_file" class="col-sm-4">
-    <input type="submit" value="送信" class="btn">
-  </form>
-  
-    <form action="/add" method="post">
-      内容：<textarea name="comment" cols="30" rows="5"></textarea><br>
-      <input type="submit" name="save" value="送信">
-    </form>
-  
-  
-    {% for item in comment_list %}
-    <div class="bbs_content">
-      <p>{{item["comment"]}}</p>
-        <a href="/edit/{{item['id']}}">編集</a>
-        <form action="/del" method="post">
-          <input type="hidden" name="comment_id" value="{{item['id']}}">
-          <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")'>
-      </form><br><br>"
-    </div>
-    {% endfor %}
-  
-  
-  </div>
-  
-  
-  <div>
-    <a href="/bbs">ログアウト</a>
-  </div>
-
-{% endblock %}{% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 
 <div>
-
-
 
   {% for item in comment_list %}
   <div class="bbs">
@@ -62,7 +22,7 @@
 
 
 <div>
-  <a href="/logout">ログアウト</a>
+  <a href="/bbs">bbs</a>
 </div>
 
 {% endblock %}
