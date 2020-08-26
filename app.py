@@ -32,25 +32,83 @@ def out_html():
 
 
 # コメント送信、登録機能
-@app.route('/check', methods=["POST"])
+@app.route('/add', methods=["POST"])
 def add_comment():
-    conn = sqlite3.connect("")
+    conn = sqlite3.connect("roba_mimi.db")
     # 課題2の答えはここ 現在時刻を取得
     # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
 
     # POSTアクセスならDBに登録する
     # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
     comment = request.form.get("comment")
-    conn = sqlite3.connect('comments.db')
+    conn = sqlite3.connect('roba_mimi.db')
     c = conn.cursor()
     # 現在の最大ID取得(fetchoneの戻り値はタプル)
 
     # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
     # 課題2の答えはここ timeを新たにinsert
-    c.execute("insert into bbs values(null,?,?)", (comment, icon_id))
+    c.execute("insert into bbs values(null,?)", (comment,))
     conn.commit()
     conn.close()
-    return redirect('/hole')
+    return redirect('/check')
+
+# bbs コメント表示
+@app.route('/bbs')
+def bbs():
+        conn = sqlite3.connect('roba_mimi.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        # c.execute("select name from user where id = ?", (user_id,))
+        # fetchoneはタプル型
+        # user_info = c.fetchone()
+        # print(user_info)
+        c.execute("select max(id),comment from bbs where flag is not 1")
+        comment_new = c.fetchone()
+        # print(comment_new)
+        # 最新コメント↑、それ以外↓
+        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        comment_list = []
+        for row in c.fetchall():
+            comment_list.append({"id": row[0], "comment": row[1]})
+
+        c.close()
+        return render_template('bbs.html' , comment_list = comment_list , comment_new = comment_new)
+
+@app.route('/check')
+def check():
+        conn = sqlite3.connect('roba_mimi.db')
+        c = conn.cursor()
+        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
+        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
+        # c.execute("select name from user where id = ?", (user_id,))
+        # fetchoneはタプル型
+        # user_info = c.fetchone()
+        # print(user_info)
+        # c.execute("select max(id),comment from bbs where flag is not 1")
+        # comment_new = c.fetchone()
+        # print(comment_new)
+        # 最新コメント↑、それ以外↓
+        c.execute("select id,comment from bbs where flag is not 1 order by id DESC")
+        comment_list = []
+        for row in c.fetchall():
+            comment_list.append({"id": row[0], "comment": row[1]})
+
+        c.close()
+        return render_template('check.html' , comment_list = comment_list )
+
+@app.route('/del' ,methods=["POST"])
+def del_task():
+    # クッキーから user_id を取得
+    id = request.form.get("comment_id")
+    id = int(id)
+    conn = sqlite3.connect("roba_mimi.db")
+    c = conn.cursor()
+    c.execute("update bbs set flag = 1 where id = ?", (id,))
+    conn.commit()
+    c.close()
+    return redirect("/bbs")
+
 
 
 
