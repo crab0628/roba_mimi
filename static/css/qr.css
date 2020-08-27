@@ -1,0 +1,23 @@
+.sp_dsp {
+    display: none;
+}
+.none {
+    background-color: #ffe77e;
+}
+
+.mini_logo {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.qr {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+}
+
+.none h1 {
+    margin: 20px auto;
+    text-align: center;
+}
