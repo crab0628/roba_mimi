@@ -295,3 +295,29 @@ p {
     text-align: right;
     margin-right: 0;
 }
+
+/* インデックス */
+.sec3{
+    width: 100%;
+    font-family: "ms pgothic";
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 30px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+    margin: 0px;
+    / -webkit-text-size-adjust: 100%; /
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+    background-image: url("/static/img/indexbgwhite.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0 30px, bottom;
+    background-color: #362d4d;
+}
+
+.moji{
+    text-align:center ;
+    display:inline-block;
+    margin-top: 380px;
+    margin-left: 80px;
+}
