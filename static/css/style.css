@@ -304,9 +304,9 @@ p {
     padding-bottom: 30px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
     margin: 0px;
-    / -webkit-text-size-adjust: 100%; /
+    -webkit-text-size-adjust: 100%;
     background-attachment: fixed;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     background-image: url("/static/img/indexbgwhite.png");
     background-repeat: no-repeat, no-repeat;
