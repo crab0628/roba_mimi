@@ -6,26 +6,13 @@
 
   <div class="new">
     <div class="flex">
-      <script type="text/javascript">
-        var imglist = new Array(
-           "../static/img/iconashi.png",
-           "../static/img/iconc0blue.png",
-           "../static/img/iconc0green.png",
-           "../static/img/iconc0red.png",
-           "../static/img/iconc0yellow.png",
-           "../static/img/tokoya02.png",
-           "../static/img/iconking.png",
-           "../static/img/iconroba.png");
-    
-        var selectnum = Math.floor(Math.random() * imglist.length);
-        var output = "<img src=" + imglist[selectnum] + ">";
-        document.write(output);
-     </script>
+      <!-- アイコン白に変更 -->
+      <img src="../static/img/icon.png" >
       <p>{{comment_new[1]}}</p>
     </div>
-    <form action="/del" method="post">
+    <form action="/del2" method="post" class="dust">
       <input type="hidden" name="comment_id" value="{{comment_new[0]}}">
-      <input type="submit" name="delete" value="削除する" onclick='return confirm("本当に削除しますか？")' class="button-in">
+      <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete" onclick='return confirm("削除しますか？")'>
     </form>
   </div>
 
@@ -64,7 +51,10 @@
 
 
 <div class="button-out">
-  <a href="in">入力に戻る</a>
+  <a href="in">まだ言い足りない</a>
+</div>
+<div class="button-out">
+  <a href="check">井戸の中を見てみる</a>
 </div>
 
 {% endblock %}

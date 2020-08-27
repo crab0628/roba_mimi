@@ -89,7 +89,8 @@ def check():
         comment_new = c.fetchone()
         # print(comment_new)
         # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by random()")
+        # c.execute("select id,comment from bbs where flag is not 1 order by random() limit 20")
+        c.execute("select id,comment from (select * from bbs order by id desc limit 50) as A order by random() limit 20")
         comment_list = []
         for row in c.fetchall():
             comment_list.append({"id": row[0], "comment": row[1]})
@@ -108,6 +109,18 @@ def del_task():
     conn.commit()
     c.close()
     return redirect("/check")
+
+@app.route('/del2' ,methods=["POST"])
+def del_bbs():
+    # クッキーから user_id を取得
+    id = request.form.get("comment_id")
+    id = int(id)
+    conn = sqlite3.connect("roba_mimi.db")
+    c = conn.cursor()
+    c.execute("update bbs set flag = 1 where id = ?", (id,))
+    conn.commit()
+    c.close()
+    return redirect("/in")
 
 
 

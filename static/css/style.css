@@ -313,14 +313,13 @@ p {
     background-position:top;
     background-color: #362d4d;
 }
-
 .moji{
+    position: absolute;
+    bottom: 100px;
     text-align:center ;
-    display:inline-block;
-    margin-top: 380px;
-    margin-left: 80px;
+    margin: 0 auto;
+    /* display:inline-block; */
 }
-
 body{
     display: block;
     margin: 0;
@@ -329,4 +328,10 @@ body{
 /* QRコード読み込み画面 */
 .none {
     display: none;
+}
+
+/* 入力フォームのフォント */
+.status {
+    font-size: 17px;
+    font-family: "ms pgothic";
 }
