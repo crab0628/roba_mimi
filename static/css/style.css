@@ -153,10 +153,8 @@ form {
 }
 .button-in {
     font-family: "ms pgothic";
-    display       : inline-block;
-    text-align: right;
-    margin-left: 130px;
-    margin-right : 10px ; 
+    display: block;
+    margin: 0 0 0 auto;
     border-radius : 5%;          /* 角丸       */
     font-size     : 10pt;        /* 文字サイズ */
     text-align    : center;      /* 文字位置   */
@@ -303,7 +301,7 @@ p {
     position: relative;/*←相対位置*/
     padding-bottom: 30px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
-    margin: 0px;
+    margin: 0 auto;
     -webkit-text-size-adjust: 100%;
     background-attachment: fixed;
     background-size: cover;
@@ -317,7 +315,7 @@ p {
     position: absolute;
     bottom: 100px;
     text-align:center ;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     /* display:inline-block; */
 }
 body{
