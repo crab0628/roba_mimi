@@ -314,11 +314,12 @@ p {
     background-color: #362d4d;
 }
 .moji{
-    /* position: absolute; */
-    /* bottom: 100px; */
-    padding-top: 350px;
-    text-align:center ;
-    /* display:inline-block; */
+    color: white;
+    margin: 0;
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    text-align: center;
 }
 body{
     display: block;
