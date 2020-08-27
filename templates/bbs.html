@@ -6,21 +6,8 @@
 
   <div class="new">
     <div class="flex">
-      <script type="text/javascript">
-        var imglist = new Array(
-           "../static/img/iconashi.png",
-           "../static/img/iconc0blue.png",
-           "../static/img/iconc0green.png",
-           "../static/img/iconc0red.png",
-           "../static/img/iconc0yellow.png",
-           "../static/img/tokoya02.png",
-           "../static/img/iconking.png",
-           "../static/img/iconroba.png");
-    
-        var selectnum = Math.floor(Math.random() * imglist.length);
-        var output = "<img src=" + imglist[selectnum] + ">";
-        document.write(output);
-     </script>
+      <!-- アイコン白に変更 -->
+      <img src="../static/img/icon.png" >
       <p>{{comment_new[1]}}</p>
     </div>
     <form action="/del" method="post">
