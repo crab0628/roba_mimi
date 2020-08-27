@@ -153,10 +153,8 @@ form {
 }
 .button-in {
     font-family: "ms pgothic";
-    display       : inline-block;
-    text-align: right;
-    margin-left: 130px;
-    margin-right : 10px ; 
+    display: block;
+    margin: 0 0 0 auto;
     border-radius : 5%;          /* 角丸       */
     font-size     : 10pt;        /* 文字サイズ */
     text-align    : center;      /* 文字位置   */
