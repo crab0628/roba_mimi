@@ -330,3 +330,9 @@ body{
 .none {
     display: none;
 }
+
+/* 入力フォームのフォント */
+.status {
+    font-size: 18px;
+    font-family: "ms pgothic";
+}
