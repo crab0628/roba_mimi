@@ -2,7 +2,7 @@
     display: none;
 }
 .pc_bgc {
-    background-color: #ffe77e;
+    background-color: #ff7e7e;
 }
 
 .mini_logo {
@@ -19,5 +19,13 @@
 
 .none h1 {
     margin: 20px auto;
+    text-align: center;
+}
+
+.none{
+    margin: 0;
+    position: absolute;
+    top: 60px;
+    width: 100%;
     text-align: center;
 }
