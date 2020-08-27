@@ -179,9 +179,9 @@ form {
 .button-out {
     font-family: "ms pgothic";
     display: block;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-right: auto;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
     margin-left: auto;
     border-radius : 5%;          /* 角丸       */
     font-size     : 12pt;        /* 文字サイズ */
