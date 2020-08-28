@@ -152,6 +152,7 @@ form {
     /* background    : #ffffff;     文字色     */
 }
 .button-in {
+    color: white;
     font-family: "ms pgothic";
     display: block;
     margin: 0 0 0 auto;
@@ -175,6 +176,7 @@ form {
 
 /* リンク詳細 */
 .button-out {
+    color: white;
     font-family: "ms pgothic";
     display: block;
     margin-top: 15px;
@@ -335,4 +337,8 @@ body{
 .status {
     font-size: 17px;
     font-family: "ms pgothic";
+}
+
+span{
+    color: white;
 }
