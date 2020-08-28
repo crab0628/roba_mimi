@@ -7,33 +7,33 @@
 
 
   {% for item in comment_list %}
- 
+
 
   <div class="bbs">
     <div class="flex">
-  <!-- 画像ランダム表示 -->
-  <script type="text/javascript">
-    var imglist = new Array(
-       "../static/img/iconashi.png",
-       "../static/img/iconc0blue.png",
-       "../static/img/iconc0green.png",
-       "../static/img/iconc0red.png",
-       "../static/img/iconc0yellow.png",
-       "../static/img/tokoya02.png",
-       "../static/img/iconking.png",
-       "../static/img/iconroba.png");
+      <script type="text/javascript">
+        var imglist = new Array(
+          "../static/img/iconashi.png",
+          "../static/img/iconc0blue.png",
+          "../static/img/iconc0green.png",
+          "../static/img/iconc0red.png",
+          "../static/img/iconc0yellow.png",
+          "../static/img/tokoya02.png",
+          "../static/img/iconking.png",
+          "../static/img/iconroba.png");
 
-    var selectnum = Math.floor(Math.random() * imglist.length);
-    var output = "<img src=" + imglist[selectnum] + ">";
-    document.write(output);
- </script>
-    <p>{{item["comment"]}}</p>
-  </div>
-      <form action="/del" method="post" class="dust">
-        <input type="hidden" name="comment_id" value="{{item['id']}}">
-        <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete" onclick='return confirm("不適切な内容ですか？")'>
+        var selectnum = Math.floor(Math.random() * imglist.length);
+        var output = "<img src=" + imglist[selectnum] + ">";
+        document.write(output);
+      </script>
+      <p>{{item["comment"]}}</p>
+    </div>
+    <form action="/del" method="post" class="dust">
+      <input type="hidden" name="comment_id" value="{{item['id']}}">
+      <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete"
+        onclick='return confirm("不適切な内容ですか？")'>
     </form>
-  </div>  
+  </div>
   {% endfor %}
 
 

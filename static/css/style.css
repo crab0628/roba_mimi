@@ -7,11 +7,6 @@ html {
 }
 /* リセットおまじない--------------------------------- */
 
-/* css効いてるかチェック用 */
-/* div {
-    font-size: 1px;
-} */
-
 /* 背景画像設置 */
 .base {
     font-family: "ms pgothic";
@@ -21,7 +16,6 @@ html {
     padding-bottom: 30px;/*←footerの高さ*/
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
     margin: 0px;
-    /* -webkit-text-size-adjust: 100%; */
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
@@ -84,14 +78,12 @@ header img {
 .select_icon {
     width: 90%;
     margin: 0 auto;
-    /* padding-bottom: 10px; */
     display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
 .selected_icon{
     display:none;
-    /* height: 120px; */
 }
 .active_icon {
     display: block;
@@ -103,13 +95,11 @@ textarea {
     height: 100%;
     color: #000;
     display: inline-block;
-
     border-style: solid;
     border-color: gray;
     border-image: initial;
     padding: 2px;
     cursor: pointer;
-
     resize: none; /* 入力フォームサイズ変更禁止 */
 }
 label input {
@@ -149,7 +139,6 @@ form {
 }
 .twi img,.select_icon img{
     width: 40px;
-    /* background    : #ffffff;     文字色     */
 }
 .button-in {
     color: white;
@@ -205,10 +194,7 @@ a:visited {
 color:#fff;
 text-decoration:underline;
 }
-
     
-
-
 /* フォーム切り替え用装飾 */
 .form{
     display:none;
@@ -221,7 +207,6 @@ text-decoration:underline;
     display: inline-block;
     padding: 6px 0;
     margin: 0 5px;
-    /* border-radius: 3px; */
     cursor: pointer;
 }
 .switch {
@@ -338,7 +323,6 @@ body{
     font-size: 17px;
     font-family: "ms pgothic";
 }
-
 span{
     color: white;
 }

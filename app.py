@@ -17,10 +17,6 @@ def index():
 def in_html():
     return render_template("in.html")
 
-# @app.route("/check")
-# def check_html():
-#     return render_template("check.html")
-
 @app.route("/hole")
 def hole_html():
     return render_template("hole.html")
@@ -35,18 +31,9 @@ def out_html():
 @app.route('/add', methods=["POST"])
 def add_comment():
     conn = sqlite3.connect("roba_mimi.db")
-    # 課題2の答えはここ 現在時刻を取得
-    # time = datetime.now().strftime('%Y/%m/%d %H:%M:%S')
-
-    # POSTアクセスならDBに登録する
-    # フォームから入力されたアイテム名の取得(Python2ならrequest.form.getを使う)
     comment = request.form.get("comment")
     conn = sqlite3.connect('roba_mimi.db')
     c = conn.cursor()
-    # 現在の最大ID取得(fetchoneの戻り値はタプル)
-
-    # 課題1の答えはここ null,?,?,0の0はdel_flagのデフォルト値
-    # 課題2の答えはここ timeを新たにinsert
     c.execute("insert into bbs values(null,?,null)", (comment,))
     conn.commit()
     conn.close()
@@ -57,15 +44,8 @@ def add_comment():
 def bbs():
         conn = sqlite3.connect('roba_mimi.db')
         c = conn.cursor()
-        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
-        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
-        # c.execute("select name from user where id = ?", (user_id,))
-        # fetchoneはタプル型
-        # user_info = c.fetchone()
-        # print(user_info)
         c.execute("select max(id),comment from bbs where flag is not 1")
         comment_new = c.fetchone()
-        # print(comment_new)
         # 最新コメント↑、それ以外↓
         c.execute("select id,comment from bbs where flag is not 1 order by random()")
         comment_list = []
@@ -79,17 +59,8 @@ def bbs():
 def check():
         conn = sqlite3.connect('roba_mimi.db')
         c = conn.cursor()
-        # # DBにアクセスしてログインしているユーザ名と投稿内容を取得する
-        # クッキーから取得したuser_idを使用してuserテーブルのnameを取得
-        # c.execute("select name from user where id = ?", (user_id,))
-        # fetchoneはタプル型
-        # user_info = c.fetchone()
-        # print(user_info)
         c.execute("select max(id),comment from bbs where flag is not 1")
         comment_new = c.fetchone()
-        # print(comment_new)
-        # 最新コメント↑、それ以外↓
-        # c.execute("select id,comment from bbs where flag is not 1 order by random() limit 20")
         c.execute("select id,comment from (select * from bbs where flag is not 1 order by id desc limit 50) as A order by random() limit 20")
         comment_list = []
         for row in c.fetchall():

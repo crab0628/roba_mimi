@@ -6,16 +6,17 @@
 
   <div class="new">
     <div class="flex">
-      <img src="../static/img/icon.png" >
+      <img src="../static/img/icon.png">
       <p>{{comment_new[1]}}</p>
     </div>
     <form action="/del2" method="post" class="dust">
       <input type="hidden" name="comment_id" value="{{comment_new[0]}}">
-      <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete" onclick='return confirm("削除しますか？")'>
+      <input type="image" src="/static/img/icondustblack.png" id="dust" name="delete"
+        onclick='return confirm("削除しますか？")'>
     </form>
   </div>
 
-  
+
 
 </div>
 
