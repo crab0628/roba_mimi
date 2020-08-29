@@ -8,10 +8,10 @@ app = Flask(__name__)
 app.secret_key = 'robamimi'
 
 #  sqliteからpostgresqlへ（heroku対策）
-db = sqlite3.connect("roba_mimi.db")  #「hoge」を変更 
-df = pd.read_sql_query("SELECT * FROM bbs", db) #「table」を変更 
-db.close()
-df.to_csv("roba_mimi.csv", index=None)
+# db = sqlite3.connect("roba_mimi.db")  #「hoge」を変更 
+# df = pd.read_sql_query("SELECT * FROM bbs", db) #「table」を変更 
+# db.close()
+# df.to_csv("roba_mimi.csv", index=None)
 
 
 # ページ移動用ルーティング（ここから）
