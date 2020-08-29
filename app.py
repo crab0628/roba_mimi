@@ -116,8 +116,8 @@ def dated_url_for(endpoint, **values):
 
 # ↓ 制作、更新時の切り替え忘れない！
 
-# if __name__ == "__main__":
-#     app.run()
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
