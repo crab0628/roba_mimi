@@ -1,11 +1,17 @@
 # FlaskからimportしてFlaskを使えるようにする
 import sqlite3, os
-from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory, pandas as pd
 # appという名でアプリを作る宣言
 app = Flask(__name__)
 
 # Flask では標準で Flask.secret_key を設定すると、sessionを使うことができます。この時、Flask では session の内容を署名付きで Cookie に保存します。
 app.secret_key = 'robamimi'
+
+#  sqliteからpostgresqlへ（heroku対策）
+db = sqlite3.connect("roba_mimi.db")  #「hoge」を変更 
+df = pd.read_sql_query("SELECT * FROM bbs", db) #「table」を変更 
+db.close()
+df.to_csv("roba_mimi.csv", index=None)
 
 
 # ページ移動用ルーティング（ここから）
@@ -116,8 +122,8 @@ def dated_url_for(endpoint, **values):
 
 # ↓ 制作、更新時の切り替え忘れない！
 
-if __name__ == "__main__":
-    app.run()
-
 # if __name__ == "__main__":
-#     app.run(debug=True)
+#     app.run()
+
+if __name__ == "__main__":
+    app.run(debug=True)
