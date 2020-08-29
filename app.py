@@ -116,4 +116,4 @@ def dated_url_for(endpoint, **values):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
