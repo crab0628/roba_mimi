@@ -1,5 +1,5 @@
 # FlaskからimportしてFlaskを使えるようにする
-import sqlite3, os
+import sqlite3, os, psycopg2 
 from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
 # import pandas as pd
 # appという名でアプリを作る宣言
@@ -8,11 +8,14 @@ app = Flask(__name__)
 # Flask では標準で Flask.secret_key を設定すると、sessionを使うことができます。この時、Flask では session の内容を署名付きで Cookie に保存します。
 app.secret_key = 'robamimi'
 
-#  sqliteからpostgresqlへ（heroku対策）
-# db = sqlite3.connect("roba_mimi.db")  #「hoge」を変更 
-# df = pd.read_sql_query("SELECT * FROM bbs", db) #「table」を変更 
-# db.close()
-# df.to_csv("roba_mimi.csv", index=None)
+# connect postgreSQL
+# users = 'gwcelufhgolnrq' # initial user
+# dbnames = 'dao2p7dtg0lftj'
+# passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+# host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+# port = '5432'
+# sslmode = 'require'
+# conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
 
 
 # ページ移動用ルーティング（ここから）
@@ -37,11 +40,25 @@ def out_html():
 # コメント送信、登録機能
 @app.route('/add', methods=["POST"])
 def add_comment():
-    conn = sqlite3.connect("roba_mimi.db")
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect("roba_mimi.db")
     comment = request.form.get("comment")
-    conn = sqlite3.connect('roba_mimi.db')
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect('roba_mimi.db')
     c = conn.cursor()
-    c.execute("insert into bbs values(null,?,null)", (comment,))
+    c.execute("INSERT INTO bbs VALUES (default,'" + comment + "' , null)")
     conn.commit()
     conn.close()
     return redirect('/bbs')
@@ -49,41 +66,62 @@ def add_comment():
 # bbs コメント表示
 @app.route('/bbs')
 def bbs():
-        conn = sqlite3.connect('roba_mimi.db')
-        c = conn.cursor()
-        c.execute("select max(id),comment from bbs where flag is not 1")
-        comment_new = c.fetchone()
-        # 最新コメント↑、それ以外↓
-        c.execute("select id,comment from bbs where flag is not 1 order by random()")
-        comment_list = []
-        for row in c.fetchall():
-            comment_list.append({"id": row[0], "comment": row[1]})
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect('roba_mimi.db')
+    c = conn.cursor()
+    c.execute("select id,comment from bbs where id = (select max(id) from bbs) and flag is null")
+    comment_new = c.fetchone()
+    # 最新コメント↑、それ以外↓
+    c.execute("select id,comment from bbs where flag is null order by random()")
+    comment_list = []
+    for row in c.fetchall():
+        comment_list.append({"id": row[0], "comment": row[1]})
 
-        c.close()
-        return render_template('bbs.html' , comment_list = comment_list , comment_new = comment_new)
+    c.close()
+    return render_template('bbs.html' , comment_list = comment_list , comment_new = comment_new)
 
 @app.route('/check')
 def check():
-        conn = sqlite3.connect('roba_mimi.db')
-        c = conn.cursor()
-        c.execute("select max(id),comment from bbs where flag is not 1")
-        comment_new = c.fetchone()
-        c.execute("select id,comment from (select * from bbs where flag is not 1 order by id desc limit 50) as A order by random() limit 20")
-        comment_list = []
-        for row in c.fetchall():
-            comment_list.append({"id": row[0], "comment": row[1]})
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect('roba_mimi.db')
+    c = conn.cursor()
+    c.execute("select max(id),comment from bbs where flag != 1 group by id")
+    comment_new = c.fetchone()
+    c.execute("select id,comment from (select * from bbs where flag is null order by id desc limit 50) as A order by random() limit 20")
+    comment_list = []
+    for row in c.fetchall():
+        comment_list.append({"id": row[0], "comment": row[1]})
 
-        c.close()
-        return render_template('check.html' , comment_list = comment_list , comment_new = comment_new)
+    c.close()
+    return render_template('check.html' , comment_list = comment_list , comment_new = comment_new)
 
 @app.route('/del' ,methods=["POST"])
 def del_task():
     # クッキーから user_id を取得
     id = request.form.get("comment_id")
-    id = int(id)
-    conn = sqlite3.connect("roba_mimi.db")
+    # id = int(id)
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect("roba_mimi.db")
     c = conn.cursor()
-    c.execute("update bbs set flag = 1 where id = ?", (id,))
+    c.execute("update bbs set flag = 1 where id = '" + id + "'")
     conn.commit()
     c.close()
     return redirect("/check")
@@ -92,10 +130,17 @@ def del_task():
 def del_bbs():
     # クッキーから user_id を取得
     id = request.form.get("comment_id")
-    id = int(id)
-    conn = sqlite3.connect("roba_mimi.db")
+    # id = int(id)
+    users = 'gwcelufhgolnrq' # initial user
+    dbnames = 'dao2p7dtg0lftj'
+    passwords = '67ae8e69b0ee835b3819a947d0aec3818072a62ce959b57e02d92a35eb34c0d7'
+    host = 'ec2-54-86-57-171.compute-1.amazonaws.com'
+    port = '5432'
+    sslmode = 'require'
+    conn = psycopg2.connect(" user=" + users +" dbname=" + dbnames +" password=" + passwords +" host=" + host + " port=" + port)   
+    # conn = sqlite3.connect("roba_mimi.db")
     c = conn.cursor()
-    c.execute("update bbs set flag = 1 where id = ?", (id,))
+    c.execute("update bbs set flag = 1 where id = id", (id,))
     conn.commit()
     c.close()
     return redirect("/in")
